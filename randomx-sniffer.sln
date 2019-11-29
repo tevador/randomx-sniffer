@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "randomx-sniffer", "src\randomx-sniffer.vcxproj", "{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Debug|x64.ActiveCfg = Debug|x64
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Debug|x64.Build.0 = Debug|x64
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Debug|x86.ActiveCfg = Debug|Win32
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Debug|x86.Build.0 = Debug|Win32
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Release|x64.ActiveCfg = Release|x64
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Release|x64.Build.0 = Release|x64
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Release|x86.ActiveCfg = Release|Win32
+		{97930B5A-1D5C-4A2A-BBBB-F70529C7C435}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F07CD74-4BE5-48A0-8153-1C9A5F5C5CB2}
+	EndGlobalSection
+EndGlobal
