@@ -34,7 +34,7 @@ int main() {
 	std::vector<SuspectProcess> suspectProcesses;
 
 	try {
-		for (int i = 0; i < 5; ++i) {
+		for (int j = 0; j < 5; ++j) {
 			std::this_thread::sleep_for(50ms);
 			pl.query();
 			do {
