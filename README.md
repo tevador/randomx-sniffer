@@ -8,11 +8,11 @@ There are only 2 ways how malware can hide from being detected by this technique
 
 ## Build
 
-Build using Visual Studio 2019.
+Build using Visual Studio 2019. Precompiled binaries are available on the [Releases page](https://github.com/tevador/randomx-sniffer/releases).
 
 ## License
 
-The source code is released into the public domain under CC0.
+The source code is released into the public domain under [CC0](https://creativecommons.org/publicdomain/zero/1.0/deed.en).
 
 ## Donations
 
