@@ -20,19 +20,50 @@
 #include "process_list.h"
 
 struct SuspectProcess {
-	SuspectProcess(randomx::Process p) : id(p.getId()),	name(p.getName()) {
+	SuspectProcess(randomx::Process p) : id(p.getId()), name(p.getName()) {
 	}
 	std::wstring name;
 	DWORD id;
 	std::vector<DWORD> threads;
 };
 
+BOOL setPrivilege(const char* pszPrivilege, BOOL bEnable) {
+	HANDLE           hToken = NULL;
+	TOKEN_PRIVILEGES tp;
+	BOOL             status = FALSE;
+
+	if (!OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken))
+		goto cleanup;
+
+	if (!LookupPrivilegeValue(NULL, pszPrivilege, &tp.Privileges[0].Luid))
+		goto cleanup;
+
+	tp.PrivilegeCount = 1;
+
+	if (bEnable)
+		tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+	else
+		tp.Privileges[0].Attributes = 0;
+
+	status =
+		AdjustTokenPrivileges(hToken, FALSE, &tp, 0, NULL, 0)
+		&&
+		GetLastError() == ERROR_SUCCESS;
+
+cleanup:
+	if (hToken != NULL)
+		CloseHandle(hToken);
+	return status;
+}
+
 using namespace std::chrono_literals;
 
 int main() {
 	randomx::ProcessList pl;
 	std::vector<SuspectProcess> suspectProcesses;
-
+	if (!setPrivilege(SE_DEBUG_NAME, TRUE)) {
+		std::cout << "WARNING: Failed to obtain " SE_DEBUG_NAME ". Please run the program as administrator to scan all processes." << std::endl;
+	}
 	try {
 		for (int j = 0; j < 5; ++j) {
 			std::this_thread::sleep_for(50ms);
