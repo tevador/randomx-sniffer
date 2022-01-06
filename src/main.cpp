@@ -144,16 +144,10 @@ int main(int argc, char** argv) {
 							sp.updateThread(thread);
 						}
 						else if (thread.getRound() != randomx::Round::Default) {
-							if (it != suspectProcesses.end()) {
-								auto& sp = *it;
-								sp.updateThread(thread);
-							}
-							else {
-								SuspectProcess sp(process);
-								sp.updateThread(thread);
-								suspectProcesses.push_back(sp);
-								it = suspectProcesses.end() - 1;
-							}
+							SuspectProcess sp(process);
+							sp.updateThread(thread);
+							suspectProcesses.push_back(sp);
+							it = suspectProcesses.end() - 1;
 						}
 					}
 				}
